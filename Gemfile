@@ -89,6 +89,8 @@ gem "rack-timeout"
 gem 'jquery-growl-rails'
 
 gem 'httparty'
+gem "paypal-sdk-merchant"
+gem "paypal-sdk-rest", "~>1.3.1"
 
 group :development do
 

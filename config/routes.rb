@@ -63,6 +63,11 @@ Orders::Application.routes.draw do
     end
   end
 
+  resources :orders, only: [:create] do
+    collection do
+      post :pay
+    end
+  end
 
   root 'home#index'
 end
