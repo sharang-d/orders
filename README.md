@@ -1,6 +1,3 @@
-## TOC
-* [Local Development Setup](#local-development-setup)
-
 ## Local Development Setup
 
 ```
