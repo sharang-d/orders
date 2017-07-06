@@ -19,26 +19,27 @@ $(function() {
           // Make a call to your server to set up the payment
           return paypal.request.post(CREATE_URL)
               .then(function(res) {
-                  return res.paymentID;
+                return res.paymentID;
               });
       },
 
       // onAuthorize() is called when the buyer approves the payment
       onAuthorize: function(data, actions) {
-        debugger
           // Set up a url on your server to execute the payment
           var EXECUTE_URL = '/orders/pay';
-          // Set up the data you need to pass to your server
-          var data = {
-              paymentID: data.paymentID,
-              payerID: data.payerID
-          };
+          // // Set up the data you need to pass to your server
+          // var data = {
+          //     paymentID: data.paymentID,
+          //     payerID: data.payerID
+          // };
 
-          // Make a call to your server to execute the payment
+          // // Make a call to your server to execute the payment
           return paypal.request.post(EXECUTE_URL, data)
               .then(function (res) {
                   window.alert('Payment Complete!');
               });
+          // return actions.redirect();
+
       }
     }, '#paypal-button-container');
   }

@@ -41,7 +41,7 @@ class PaypalRestApi
               total: amount
             },
             payee: {
-              email: PAYPAL_USER_EMAIL
+              email: 'akshay.vishnoi+2-seller@bigbinary.com'
             },
             items: [
               {
@@ -76,6 +76,20 @@ class PaypalRestApi
       }.to_json
     )
   end
+
+  def disburse_funds(capture_id)
+    self.class.post("/v1/payments/referenced-payouts-items",
+      headers: {
+        "Authorization"             => token,
+        "PayPal-Request-Id"         => timestamp,
+        "Prefer"                    => "respond-sync"
+      },
+      body: {
+        "reference_type" => "TRANSACTION_ID",
+        "reference_id"   => capture_id
+      }.to_json
+    )
+    end
 
   private
 

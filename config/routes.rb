@@ -63,6 +63,7 @@ Orders::Application.routes.draw do
     end
   end
 
+  post '/paypal-webhook', to: 'orders#handle_paypal_webhooks'
   resources :orders, only: [:create] do
     collection do
       post :pay
