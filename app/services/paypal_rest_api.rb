@@ -35,10 +35,10 @@ class PaypalRestApi
               currency: "USD",
               details: {
                 shipping: "0",
-                subtotal: amount,
+                subtotal: 15,
                 tax: "0"
               },
-              total: amount
+              total: 15
             },
             payee: {
               email: 'akshay.vishnoi+2-seller@bigbinary.com'
@@ -46,8 +46,34 @@ class PaypalRestApi
             items: [
               {
                 currency: "USD",
-                name: "From Test App",
-                price: amount,
+                name: "mobile",
+                price: 15,
+                quantity: "1",
+                sku: "Item2001"
+              }
+            ],
+            payment_descriptor: "gumroad.com",
+            notify_url: "http://marketplace.com/"
+          },
+          {
+            reference_id: "po12",
+            amount: {
+              currency: "USD",
+              details: {
+                shipping: "0",
+                subtotal: 10,
+                tax: "0"
+              },
+              total: 10
+            },
+            payee: {
+              email: 'akshay.vishnoi+2-seller@bigbinary.com'
+            },
+            items: [
+              {
+                currency: "USD",
+                name: "earphones",
+                price: 10,
                 quantity: "1",
                 sku: "Item2000"
               }
@@ -55,6 +81,7 @@ class PaypalRestApi
             payment_descriptor: "gumroad.com",
             notify_url: "http://marketplace.com/"
           }
+
         ],
         redirect_urls: {
           return_url: return_url,
@@ -89,7 +116,18 @@ class PaypalRestApi
         "reference_id"   => capture_id
       }.to_json
     )
-    end
+  end
+
+  def refund(capture_id)
+    self.class.post("/v1/payments/capture/#{ capture_id }/refund",
+      headers: {
+        'Authorization' => token,
+        'PayPal-Request-Id' => timestamp
+      },
+      body: {}.to_json
+    )
+
+  end
 
   private
 
