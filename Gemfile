@@ -116,3 +116,7 @@ group :test do
   gem 'simplecov', require: false
 
 end
+
+group :test, :development do
+  gem "pry"
+end
