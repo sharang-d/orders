@@ -14,10 +14,10 @@ class OrdersController < ApplicationController
   end
 
   def create
-    api_response = PaypalRestApi.new.create_order(email: nil, return_url: root_url,
+    api_response = PaypalRestApi.new.create_order(email: nil, return_url: pay_orders_url,
                                                   cancel_url: root_url, amount_cents: "1.11")
 
-    render json: { paymentID: api_response["id"] }
+    render json: { approval_url: api_response.parsed_response["links"].find { |link| link["rel"] == "approval_url" }["href"] }
   end
 
   def pay
