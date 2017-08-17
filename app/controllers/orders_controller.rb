@@ -1,12 +1,15 @@
 class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token
+
   def handle_paypal_webhooks
     if params[:event_type] == 'CHECKOUT.ORDER.PROCESSED'
       params[:resource][:purchase_units].each do |purchase_unit|
         capture_id = purchase_unit[:payment_summary][:captures][0][:id]
+
         PaypalRestApi.new.disburse_funds(capture_id)
       end
     end
+
     render json: {}
   end
 
@@ -19,6 +22,7 @@ class OrdersController < ApplicationController
 
   def pay
     PaypalRestApi.new.pay(order_id: params["paymentToken"])
+
     render json: { message: "Success" }
   end
 end
