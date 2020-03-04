@@ -15,14 +15,15 @@ class OrdersController < ApplicationController
 
   def create
     api_response = PaypalRestApi.new.create_order(email: "sharang.d-facilitator@gmail.com", return_url: root_url,
-                                                  cancel_url: root_url, amount_cents: "1.11")
+                                                  cancel_url: root_url, amount_cents: 152)
     Rails.logger.info api_response.inspect
-    render json: { paymentID: api_response["id"] }
+    render json: { id: api_response["id"] }
   end
 
-  def pay
-    PaypalRestApi.new.pay(order_id: params["paymentToken"])
+  def capture
+    api_response = PaypalRestApi.new.capture(order_id: params[:order_id])
+    Rails.logger.info api_response.inspect
 
-    render json: { message: "Success" }
+    render json: { api_response: api_response }
   end
 end

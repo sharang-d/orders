@@ -54,7 +54,7 @@ $(function() {
         });
       },
       onApprove: function(data, actions) {
-        return fetch('/orders/pay/' + data.orderID, {
+        return fetch('/orders/' + data.orderID + '/capture', {
           method: 'POST'
         }).then(function(res){
           if (!res.ok) {
