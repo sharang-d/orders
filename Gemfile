@@ -90,7 +90,7 @@ gem 'jquery-growl-rails'
 
 gem 'httparty'
 gem "paypal-sdk-merchant"
-gem "paypal-sdk-rest", "~>1.3.1"
+gem "paypal-sdk-rest", "~>1.7.4"
 
 group :development do
 

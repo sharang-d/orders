@@ -320,7 +320,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    multi_json (1.12.1)
+    multi_json (1.14.1)
     multi_xml (0.6.0)
     mustermann (1.0.0)
     nio4r (2.1.0)
@@ -332,9 +332,8 @@ GEM
       xml-simple
     paypal-sdk-merchant (1.117.2)
       paypal-sdk-core (~> 0.3.0)
-    paypal-sdk-rest (1.3.5)
+    paypal-sdk-rest (1.7.4)
       multi_json (~> 1.0)
-      uuidtools (~> 2.1)
       xml-simple
     pg (0.20.0)
     polyamorous (1.3.1)
@@ -433,7 +432,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-    uuidtools (2.1.5)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.5.1)
@@ -469,7 +467,7 @@ DEPENDENCIES
   mail_interceptor
   minitest-reporters
   paypal-sdk-merchant
-  paypal-sdk-rest (~> 1.3.1)
+  paypal-sdk-rest (~> 1.7.4)
   pg
   pry
   puma (~> 4.3)
