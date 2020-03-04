@@ -116,7 +116,7 @@ GEM
     email_validator (1.6.0)
       activemodel
     erubi (1.9.0)
-    excon (0.56.0)
+    excon (0.72.0)
     execjs (2.7.0)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
