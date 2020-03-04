@@ -14,9 +14,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    api_response = PaypalRestApi.new.create_order(email: nil, return_url: root_url,
+    api_response = PaypalRestApi.new.create_order(email: "sharang.d-facilitator@gmail.com", return_url: root_url,
                                                   cancel_url: root_url, amount_cents: "1.11")
-
+    Rails.logger.info api_response.inspect
     render json: { paymentID: api_response["id"] }
   end
 

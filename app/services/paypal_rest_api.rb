@@ -3,90 +3,64 @@ class PaypalRestApi
 
   base_uri PAYPAL_REST_ENDPOINT
   headers({
-    "Accept"                        => "application/json",
     "Content-Type"                  => "application/json",
-    "PayPal-Partner-Attribution-Id" => "Gumroad_SP",
-    "Accept-Language"               => "en_US"
+    "PayPal-Partner-Attribution-Id" => "Gumroad_SP"
   })
 
   def create_order(email:, return_url:, cancel_url:, amount_cents:)
     tracking_id = timestamp
-    Rails.logger.info timestamp
-    Rails.logger.info "*******" * 100
-    self.class.put("/v1/risk/transaction-contexts/#{PAYPAL_MERCHANT_ID}/#{tracking_id}",
-      headers: {
-        "Authorization"     => token,
-        "PayPal-Request-Id" => timestamp
-      }
-    )
-
     amount = amount_cents
-    self.class.post("/v1/checkout/orders",
+    self.class.post("/v2/checkout/orders",
       headers: {
         "Authorization"             => token,
-        "Paypal-Client-Metadata-Id" => tracking_id,
         "PayPal-Request-Id"         => timestamp
       },
       body: {
+        intent: "CAPTURE",
+        application_context: {
+          return_url: return_url,
+          cancel_url: cancel_url,
+          client_configuration: {
+            integration_artifact: "PAYPAL_JS_SDK",
+            experience: {
+              user_experience_flow: "FULL_PAGE_REDIRECT",
+              entry_point: "PAY_WITH_PAYPAL",
+              channel: "WEB",
+              product_flow: "HERMES"
+            }
+          },
+        },
+        # preferred_payment_source: {
+        #   token: {
+        #     type: "BILLING_AGREEMENT",
+        #     id: "B-6282561050045662U"
+        #   }
+        # },
         purchase_units: [
           {
             reference_id: "po11",
             amount: {
-              currency: "USD",
-              details: {
-                shipping: "0",
-                subtotal: 15,
-                tax: "0"
-              },
-              total: 15
+              currency_code: "USD",
+              value: "15.00"
             },
             payee: {
-              email: 'akshay.vishnoi+2-seller@bigbinary.com'
+              email: email
             },
+            payment_instruction: "INSTANT",
             items: [
               {
-                currency: "USD",
                 name: "mobile",
-                price: 15,
+                unit_amount: {
+                  currency_code: "USD",
+                  value: "15.00"
+                },
                 quantity: "1",
                 sku: "Item2001"
               }
             ],
-            payment_descriptor: "gumroad.com",
-            notify_url: "http://marketplace.com/"
-          },
-          {
-            reference_id: "po12",
-            amount: {
-              currency: "USD",
-              details: {
-                shipping: "0",
-                subtotal: 10,
-                tax: "0"
-              },
-              total: 10
-            },
-            payee: {
-              email: 'akshay.vishnoi+2-seller@bigbinary.com'
-            },
-            items: [
-              {
-                currency: "USD",
-                name: "earphones",
-                price: 10,
-                quantity: "1",
-                sku: "Item2000"
-              }
-            ],
-            payment_descriptor: "gumroad.com",
-            notify_url: "http://marketplace.com/"
+            soft_descriptor: "gumroad.com"
           }
-
         ],
-        redirect_urls: {
-          return_url: return_url,
-          cancel_url: cancel_url
-        }
       }.to_json
     )
   end
@@ -132,7 +106,7 @@ class PaypalRestApi
   private
 
   def token
-    "Bearer #{PayPal::SDK::Core::API::REST.new.token}"
+    PaypalPartnerRestCredentials.new.auth_token
   end
 
   def timestamp
