@@ -7,6 +7,32 @@
 
 $(function() {
   if($('#paypal-button-container').length > 0) {
+    // paypal.Button.render({
+    //   style: {
+    //     color: 'silver',
+    //     shape: 'pill',
+    //     label: 'generic',
+    //     tagline: false
+    //   },
+    //   env: 'sandbox', // sandbox | production
+    //   // Show the buyer a 'Pay Now' button in the checkout flow
+    //   commit: true,
+    //   // payment() is called when the button is clicked
+    //   payment: function() {
+    //       return paypal.request.post('/orders')
+    //           .then(function(res) {
+    //             return res.id;
+    //           });
+    //   },
+    //   // onAuthorize() is called when the buyer approves the payment
+    //   onAuthorize: function(data, actions) {
+    //       return paypal.request.post('/orders/' + data.orderID + '/capture', {})
+    //           .then(function (res) {
+    //               console.log('Payment Complete!');
+    //           });
+    //   }
+    // }, '#paypal-button-container');
+
     paypal.Buttons({
       style: {
         layout: 'horizontal',
