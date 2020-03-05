@@ -43,7 +43,7 @@ gem 'daemons'
 gem 'bootstrap-sass', '~> 3.4.1'
 
 # for using font-awesome
-gem 'font-awesome-sass', '~> 4.3.0'
+gem 'font-awesome-sass', '~> 5.12.0'
 
 # forms made easy for rails
 gem 'simple_form'
