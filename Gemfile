@@ -40,7 +40,7 @@ gem 'delayed_job_web', '>= 1.2.10'
 gem 'daemons'
 
 # for using bootstrap framework
-gem 'bootstrap-sass', '~> 3.3.3'
+gem 'bootstrap-sass', '~> 3.4.1'
 
 # for using font-awesome
 gem 'font-awesome-sass', '~> 4.3.0'
