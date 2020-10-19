@@ -119,7 +119,7 @@ GEM
     erubi (1.9.0)
     excon (0.72.0)
     execjs (2.7.0)
-    ffi (1.12.2)
+    ffi (1.13.1)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     fog (1.40.0)
@@ -258,8 +258,8 @@ GEM
     fog-xml (0.1.3)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
-    font-awesome-sass (4.3.2.1)
-      sass (~> 3.2)
+    font-awesome-sass (5.15.1)
+      sassc (>= 1.11)
     formatador (0.2.5)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
@@ -387,7 +387,7 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.3)
-    rb-fsevent (0.10.3)
+    rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rbvmomi (1.11.2)
@@ -472,7 +472,7 @@ DEPENDENCIES
   email_prefixer
   email_validator
   fog
-  font-awesome-sass (~> 4.3.0)
+  font-awesome-sass (~> 5.15.1)
   honeybadger (~> 3.1)
   httparty
   jbuilder (>= 2.2.13)
