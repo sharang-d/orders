@@ -317,8 +317,8 @@ GEM
     mime-types-data (3.2019.1009)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.0)
-    minitest-reporters (1.1.14)
+    minitest (5.14.3)
+    minitest-reporters (1.4.3)
       ansi
       builder
       minitest (>= 5.0)
@@ -398,7 +398,7 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
-    ruby-progressbar (1.8.1)
+    ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.2)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
