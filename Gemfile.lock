@@ -1,13 +1,13 @@
 GIT
-  remote: git://github.com/sinatra/sinatra.git
-  revision: a58834812b455101111ef332c7510bc9083c30d0
+  remote: https://github.com/sinatra/sinatra.git
+  revision: 029e27dfb63dd0084a56660030a52271db23a1fe
   specs:
-    rack-protection (2.0.0)
+    rack-protection (3.0.0)
       rack
-    sinatra (2.0.0)
+    sinatra (3.0.0)
       mustermann (~> 1.0)
-      rack (~> 2.0)
-      rack-protection (= 2.0.0)
+      rack (~> 2.2)
+      rack-protection (= 3.0.0)
       tilt (~> 2.0)
 
 GEM
@@ -348,7 +348,7 @@ GEM
       method_source (~> 0.9.0)
     puma (4.3.3)
       nio4r (~> 2.0)
-    rack (2.2.2)
+    rack (2.2.3.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rack-timeout (0.4.2)
@@ -399,7 +399,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     ruby-progressbar (1.8.1)
-    ruby2_keywords (0.0.2)
+    ruby2_keywords (0.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
