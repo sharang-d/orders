@@ -1,13 +1,13 @@
 GIT
-  remote: git://github.com/sinatra/sinatra.git
-  revision: a58834812b455101111ef332c7510bc9083c30d0
+  remote: https://github.com/sinatra/sinatra.git
+  revision: 118b429d95145174260cd4c564e1bd5d05434e59
   specs:
-    rack-protection (2.0.0)
+    rack-protection (3.0.0)
       rack
-    sinatra (2.0.0)
+    sinatra (3.0.0)
       mustermann (~> 1.0)
-      rack (~> 2.0)
-      rack-protection (= 2.0.0)
+      rack (~> 2.2)
+      rack-protection (= 3.0.0)
       tilt (~> 2.0)
 
 GEM
@@ -304,7 +304,7 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
-    loofah (2.4.0)
+    loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -328,7 +328,7 @@ GEM
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.2)
-    nokogiri (1.10.9)
+    nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     paypal-sdk-core (0.3.4)
@@ -367,7 +367,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.3.0)
+    rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
     rails_12factor (0.0.3)
       rails_serve_static_assets
@@ -399,7 +399,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     ruby-progressbar (1.8.1)
-    ruby2_keywords (0.0.2)
+    ruby2_keywords (0.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
